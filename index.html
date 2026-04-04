@@ -586,6 +586,16 @@
         .copy-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px); background: #2d3561; color: white; padding: 10px 24px; border-radius: 30px; font-weight: 700; font-size: 0.95em; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s; z-index: 9999; pointer-events: none; }
         .copy-toast.show { transform: translateX(-50%) translateY(0); }
 
+        /* Flower Blossom Cards */
+        .flower-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 4px; }
+        .flower-card { background: var(--food-card-bg); border: 1px solid rgba(255,150,180,0.3); border-radius: 10px; padding: 13px 15px; }
+        .flower-card:hover { box-shadow: 0 4px 14px rgba(255,100,150,0.15); }
+        .flower-header { font-size: 1em; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+        .flower-cn { font-size: 0.82em; color: var(--subtext); font-weight: 400; }
+        .flower-day { font-size: 0.76em; font-weight: 700; color: #e84393; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 7px; }
+        .flower-desc { font-size: 0.86em; color: var(--subtext); line-height: 1.5; margin-bottom: 8px; }
+        .flower-blooms { font-size: 0.8em; color: var(--highlight-border); font-weight: 600; }
+
         </style>
 </head>
 <body>
@@ -1391,6 +1401,66 @@
                 </div>
             </div>
         </section>
+
+        <!-- Flower Blossom Section -->
+        <div style="margin: 20px 0;">
+            <div style="background:var(--day-header-bg);color:white;padding:14px 18px;border-radius:12px 12px 0 0;border-left:5px solid #ff9eb5;">
+                <h2 style="font-size:1.3em;margin:0;"><span style="margin-right:8px;">🌸</span> Flower Blossoms — April 4–7</h2>
+                <p style="font-size:0.85em;opacity:0.85;margin:4px 0 0;">You're visiting at peak spring bloom season. Here's where to find the flowers.</p>
+            </div>
+            <div style="background:var(--card-bg);border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;padding:16px 18px;">
+
+                <div class="flower-grid">
+
+                    <div class="flower-card">
+                        <div class="flower-header">🌺 Black Dragon Pool Park <span class="flower-cn">黑龙潭公园</span></div>
+                        <div class="flower-day">Apr 4 Evening · Lijiang Old Town area</div>
+                        <p class="flower-desc">The most iconic flower spot in Lijiang — camellias, cherry blossoms and spring flowers reflected on the lake with Jade Dragon Snow Mountain as the backdrop. Genuinely stunning and right near Old Town. Best light: 7–9 AM or 4–6 PM.</p>
+                        <div class="flower-blooms">🌸 Cherry blossoms &nbsp;·&nbsp; 🌺 Camellias &nbsp;·&nbsp; 🌼 Spring flowers</div>
+                    </div>
+
+                    <div class="flower-card">
+                        <div class="flower-header">🌸 Cherry Blossom Avenue <span class="flower-cn">雪山路樱花大道</span></div>
+                        <div class="flower-day">Apr 4 · Xueshan Road, Lijiang</div>
+                        <p class="flower-desc">A tree-lined boulevard along Xueshan Road famous for its cherry blossoms. Peak is late March through early April — you're visiting right at the tail end, so catch it while you can on arrival day. A quick detour from the airport route.</p>
+                        <div class="flower-blooms">🌸 Cherry blossoms (late season — catch early!)</div>
+                    </div>
+
+                    <div class="flower-card">
+                        <div class="flower-header">🌸 Shuhe Ancient Town <span class="flower-cn">束河古镇</span></div>
+                        <div class="flower-day">Apr 4–5 · 4km from Lijiang Old Town</div>
+                        <p class="flower-desc">A quieter, less-touristy sister town to Lijiang Old Town. In April the streets and alleys are lined with magnolias, peach blossoms, pear blossoms and camellias. Lovely for a relaxed morning walk before heading to Jade Dragon on Day 2.</p>
+                        <div class="flower-blooms">🌷 Magnolias &nbsp;·&nbsp; 🍑 Peach blossoms &nbsp;·&nbsp; 🌸 Pear blossoms &nbsp;·&nbsp; 🌺 Camellias</div>
+                    </div>
+
+                    <div class="flower-card">
+                        <div class="flower-header">🌺 Yufeng Temple <span class="flower-cn">玉峰寺</span></div>
+                        <div class="flower-day">Apr 4–5 · 13km from Old Town</div>
+                        <p class="flower-desc">Home to a famous <strong>500-year-old ancient camellia tree</strong> (万朵山茶) that produces over 20,000 blooms each spring. Flower season runs February–April with March as peak — still in bloom for your visit. A genuinely remarkable living relic.</p>
+                        <div class="flower-blooms">🌺 Ancient 500-year-old camellia tree — 20,000+ blooms</div>
+                    </div>
+
+                    <div class="flower-card">
+                        <div class="flower-header">🌸 Ganhaizi Meadow <span class="flower-cn">甘海子草甸</span></div>
+                        <div class="flower-day">Apr 5 · Jade Dragon Mountain base, 3,100m</div>
+                        <p class="flower-desc">The alpine meadow at the foot of Jade Dragon Snow Mountain bursts with wildflowers in April. Snow-capped peaks above, carpets of spring flowers below — one of the most photogenic combinations in the area. You're already going here for the Impression Show.</p>
+                        <div class="flower-blooms">🌼 Alpine wildflowers &nbsp;·&nbsp; 🌸 Spring meadow blooms at 3,100m</div>
+                    </div>
+
+                    <div class="flower-card">
+                        <div class="flower-header">🌹 Rhododendrons along Highway 214 <span class="flower-cn">214国道杜鹃花</span></div>
+                        <div class="flower-day">Apr 6 · Train/road to Shangri-La</div>
+                        <p class="flower-desc">The mountain slopes along the route between Lijiang and Shangri-La are blanketed in rhododendrons through April. At elevations of 3,000–3,400m, peak bloom is April 10–28. Look out the train window — the hillsides glow pink and red. Yushui Village area (3,200m) peaks April 8–15.</p>
+                        <div class="flower-blooms">🌹 Rhododendrons in full bloom at 3,000–3,400m altitude</div>
+                    </div>
+
+                </div>
+
+                <div style="background:rgba(255,150,180,0.08);border:1px solid rgba(255,150,180,0.3);border-radius:8px;padding:12px 16px;margin-top:14px;font-size:0.88em;color:var(--subtext);">
+                    <strong style="color:var(--text);">📸 Photography tip:</strong> Early morning (7–9 AM) gives the best light and fewest crowds at all flower spots. The combination of snow mountains + spring blossoms is uniquely Lijiang — don't miss it!
+                </div>
+            </div>
+        </div>
 
         <!-- Call to Action -->
         <div style="text-align: center; margin: 30px 0; padding: 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px;">
