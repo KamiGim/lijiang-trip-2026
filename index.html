@@ -13,9 +13,10 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            background: var(--body-bg);
+            color: var(--text);
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
 
         /* Hero Section */
@@ -72,7 +73,9 @@
 
         /* ── Dark / Light Theme ── */
         :root {
+            --body-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --bg: #f0f4ff;
+            --altitude-bg: #fff3cd;
             --card-bg: #ffffff;
             --text: #333333;
             --subtext: #555555;
@@ -91,7 +94,9 @@
             --food-card-border: #e0e6ff;
         }
         [data-theme="dark"] {
+            --body-bg: #0a0c18;
             --bg: #0f1117;
+            --altitude-bg: #2a2000;
             --card-bg: #1a1d2e;
             --text: #e0e0e0;
             --subtext: #aaaaaa;
@@ -179,7 +184,7 @@
         }
 
         .day-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--day-header-bg);
             color: white;
             padding: 25px;
             border-left: 5px solid #ffd700;
@@ -203,8 +208,8 @@
         .location {
             margin: 25px 0;
             padding: 20px;
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
+            background: var(--card-bg);
+            border-left: 4px solid var(--highlight-border);
             border-radius: 8px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -217,7 +222,7 @@
         .location-title {
             font-size: 1.3em;
             font-weight: 600;
-            color: #764ba2;
+            color: var(--highlight-border);
             margin-bottom: 10px;
         }
 
@@ -243,12 +248,12 @@
         }
 
         .location-details strong {
-            color: #333;
+            color: var(--text);
         }
 
         /* Altitude Warning */
         .altitude-warning {
-            background: #fff3cd;
+            background: var(--altitude-bg, #fff3cd);
             border-left: 4px solid #ffc107;
             padding: 15px;
             margin: 15px 0;
@@ -264,14 +269,14 @@
 
         /* Highlights Section */
         .highlights {
-            background: #e7f3ff;
+            background: var(--highlight-bg);
             padding: 15px;
             border-radius: 6px;
             margin-top: 12px;
         }
 
         .highlights h4 {
-            color: #667eea;
+            color: var(--highlight-border);
             margin-bottom: 8px;
             font-size: 0.95em;
         }
@@ -285,7 +290,7 @@
             padding: 5px 0;
             padding-left: 25px;
             position: relative;
-            color: #555;
+            color: var(--subtext);
             font-size: 0.9em;
         }
 
@@ -293,7 +298,7 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--highlight-border);
             font-weight: bold;
         }
 
@@ -348,7 +353,7 @@
 
         /* Footer */
         footer {
-            background: #1a202e;
+            background: var(--footer-bg, #1a202e);
             color: white;
             text-align: center;
             padding: 30px;
@@ -478,6 +483,38 @@
             color: var(--subtext);
             font-weight: 600;
         }
+        /* Tab Buttons */
+        .tab-btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            backdrop-filter: blur(4px);
+        }
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.28);
+            transform: translateY(-1px);
+        }
+        .tab-btn.active {
+            background: white;
+            color: #667eea;
+            border-color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        [data-theme="dark"] .tab-btn {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+        [data-theme="dark"] .tab-btn.active {
+            background: #4a5ab8;
+            color: white;
+            border-color: #4a5ab8;
+        }
         /* tab content */
         .tab-content { display: none; }
         .tab-content.active { display: block; }
@@ -496,6 +533,16 @@
 
     <!-- Container -->
     <div class="container">
+
+        <!-- ── Tab Navigation ── -->
+        <div style="display:flex;gap:12px;margin:30px 0 24px;flex-wrap:wrap;">
+            <button id="btn-itinerary" class="tab-btn" onclick="switchTab('itinerary',this)">🗓️ Itinerary</button>
+            <button id="btn-food" class="tab-btn" onclick="switchTab('food',this)">🍜 Food Guide</button>
+        </div>
+
+        <!-- ── ITINERARY TAB ── -->
+        <div id="tab-itinerary" class="tab-content">
+
         <!-- April 4 - Departure Day -->
         <div class="day-section">
             <div class="day-header">
@@ -853,6 +900,8 @@
 
         </div><!-- /tab-itinerary -->
 
+        <!-- ── FOOD GUIDE TAB ── -->
+
 
         <!-- ═══════════ FOOD GUIDE TAB CONTENT ═══════════ -->
         <div id="tab-food" class="tab-content" style="display:none;">
@@ -1196,13 +1245,12 @@
     function switchTab(tab, btn) {
         document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
         document.getElementById('tab-' + tab).style.display = 'block';
-        document.querySelectorAll('.tab-btn').forEach(b => {
-            b.style.background = 'var(--tab-inactive-bg)';
-        });
-        btn.style.background = 'var(--tab-active-bg)';
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
     }
-    // Init tabs
+    // Init: show itinerary tab by default
     document.getElementById('tab-itinerary').style.display = 'block';
+    document.getElementById('btn-itinerary').classList.add('active');
 
     // ── Past Item Dimming ──
     function updatePastItems() {
