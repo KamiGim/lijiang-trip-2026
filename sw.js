@@ -1,5 +1,5 @@
 // Lijiang Adventure 2026 — Service Worker
-const CACHE_NAME = 'lijiang-2026-v1';
+const CACHE_NAME = 'lijiang-2026-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -16,28 +16,32 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 
-// Activate: clean up old caches
+// Activate: nuke ALL old caches immediately, claim clients
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
-    )
+      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => {
+        console.log('[SW] Deleting old cache:', k);
+        return caches.delete(k);
+      }))
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// Fetch: cache-first for local assets, network-first for everything else
+// Fetch: network-first so updates always show immediately;
+// fall back to cache when offline
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-      return fetch(event.request).then(response => {
-        if (response && response.status === 200 && response.type === 'basic') {
+    fetch(event.request)
+      .then(response => {
+        if (response && response.status === 200) {
           const clone = response.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
         }
         return response;
-      }).catch(() => caches.match('./index.html'));
-    })
+      })
+      .catch(() => caches.match(event.request)
+        .then(cached => cached || caches.match('./index.html'))
+      )
   );
 });
