@@ -69,6 +69,76 @@
             }
         }
 
+
+        /* ── Dark / Light Theme ── */
+        :root {
+            --bg: #f0f4ff;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --subtext: #555555;
+            --border: #e0e0e0;
+            --highlight-bg: #f8f9ff;
+            --highlight-border: #667eea;
+            --time-bg: #667eea;
+            --time-color: #ffffff;
+            --day-header-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --footer-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --tab-active-bg: #667eea;
+            --tab-inactive-bg: rgba(255,255,255,0.15);
+            --tab-hover-bg: rgba(255,255,255,0.25);
+            --section-bg: #ffffff;
+            --food-card-bg: #f8f9ff;
+            --food-card-border: #e0e6ff;
+        }
+        [data-theme="dark"] {
+            --bg: #0f1117;
+            --card-bg: #1a1d2e;
+            --text: #e0e0e0;
+            --subtext: #aaaaaa;
+            --border: #2e3150;
+            --highlight-bg: #1e2240;
+            --highlight-border: #8b9cf7;
+            --time-bg: #4a5ab8;
+            --time-color: #ffffff;
+            --day-header-bg: linear-gradient(135deg, #2a3080 0%, #4a2070 100%);
+            --footer-bg: linear-gradient(135deg, #1a1d2e 0%, #2a1a3e 100%);
+            --tab-active-bg: #4a5ab8;
+            --tab-inactive-bg: rgba(255,255,255,0.08);
+            --tab-hover-bg: rgba(255,255,255,0.15);
+            --section-bg: #1a1d2e;
+            --food-card-bg: #1e2240;
+            --food-card-border: #2e3a6e;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 9999;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.4);
+            color: white;
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.35);
+            transform: scale(1.05);
+        }
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(0,0,0,0.35);
+            border-color: rgba(255,255,255,0.2);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -89,7 +159,7 @@
 
         /* Day Section */
         .day-section {
-            background: white;
+            background: var(--card-bg);
             margin: 30px 0;
             border-radius: 12px;
             overflow: hidden;
@@ -153,7 +223,7 @@
 
         .time {
             display: inline-block;
-            background: #667eea;
+            background: var(--time-bg);
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
@@ -165,7 +235,7 @@
         .location-details {
             margin-top: 12px;
             font-size: 0.95em;
-            color: #555;
+            color: var(--subtext);
         }
 
         .location-details p {
@@ -327,9 +397,96 @@
         .mb-20 {
             margin-bottom: 20px;
         }
-    </style>
+    
+        /* ── Food Guide Styles ── */
+        .food-day-group {
+            margin-bottom: 40px;
+        }
+        .food-day-label {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--highlight-border);
+            border-left: 4px solid var(--highlight-border);
+            padding: 10px 16px;
+            background: var(--highlight-bg);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 16px;
+            margin-top: 32px;
+        }
+        .food-card {
+            background: var(--food-card-bg);
+            border: 1px solid var(--food-card-border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .food-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.15);
+        }
+        .food-card-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: rgba(255, 200, 50, 0.08);
+            border-color: rgba(255, 180, 0, 0.35);
+        }
+        .food-card-tip p { margin: 0; color: var(--subtext); font-size: 0.95em; }
+        .food-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        .food-emoji {
+            font-size: 2em;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .food-name {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+        .food-cn {
+            font-size: 0.88em;
+            color: var(--subtext);
+            font-weight: 400;
+        }
+        .food-tag {
+            font-size: 0.78em;
+            color: var(--highlight-border);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .food-desc {
+            color: var(--subtext);
+            font-size: 0.93em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .food-where {
+            font-size: 0.88em;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .food-price {
+            font-size: 0.85em;
+            color: var(--subtext);
+            font-weight: 600;
+        }
+        /* tab content */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+
+        </style>
 </head>
 <body>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
     <!-- Hero Section -->
     <section class="hero">
         <h1>✨ Lijiang Adventure ✨</h1>
@@ -694,6 +851,255 @@
             </div>
         </div>
 
+        </div><!-- /tab-itinerary -->
+
+
+        <!-- ═══════════ FOOD GUIDE TAB CONTENT ═══════════ -->
+        <div id="tab-food" class="tab-content" style="display:none;">
+            <div style="max-width:960px; margin:0 auto; padding:0 20px 60px;">
+
+                <!-- Apr 4 Evening – Lijiang Old Town -->
+                <div class="food-day-group">
+                    <div class="food-day-label">🌙 April 4 Evening — Lijiang Old Town (丽江古城)</div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🍜</span>
+                            <div>
+                                <div class="food-name">Crossing-the-Bridge Noodles <span class="food-cn">过桥米线</span></div>
+                                <div class="food-tag">Yunnan Signature · Street & Restaurant</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Yunnan's most iconic dish. A large bowl of piping-hot broth arrives, and you slide in raw ingredients — thin rice noodles, sliced chicken, vegetables — which cook instantly in the boiling soup. The name comes from the legend of a wife crossing a bridge daily to bring noodles to her scholar husband.</p>
+                        <div class="food-where">📍 Try at: <strong>Hobbit Castle Noodle Shop</strong> (霍比特城堡过桥米线) — fantasy-themed with rooftop Old Town views. Also widely available throughout the Old Town.</div>
+                        <div class="food-price">💰 ~¥25–50/person</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🧀</span>
+                            <div>
+                                <div class="food-name">Grilled Milk Cheese <span class="food-cn">烤乳饼 / 乳扇</span></div>
+                                <div class="food-tag">Naxi Street Food · Night Market</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Yunnan's famous dairy snack — thin sheets of cow's milk cheese grilled over charcoal until golden and slightly crispy. Often brushed with chili, sweet sauce, or served plain. Surprisingly delicious and unique to this region.</p>
+                        <div class="food-where">📍 Try at: <strong>Zhongyi Night Market</strong> (忠义夜市) — best spot for authentic street food in one place.</div>
+                        <div class="food-price">💰 ~¥5–15/piece</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🍄</span>
+                            <div>
+                                <div class="food-name">Wild Mushroom Hotpot <span class="food-cn">野生菌火锅</span></div>
+                                <div class="food-tag">Yunnan Specialty · Restaurant</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Yunnan is China's mushroom capital. This hotpot features an extraordinary variety of wild forest mushrooms — porcini, chanterelle, matsutake — in a rich broth. Cooked in traditional Motuo stone pots that enhance the earthy flavors. A must-experience meal.</p>
+                        <div class="food-where">📍 Try at: <strong>Mu Wang Yan Yu Restaurant</strong> (木王宴语·野生鲜菌火锅) — No.16 Yinyu Alley, known for clean, authentic atmosphere.</div>
+                        <div class="food-price">💰 ~¥80–150/person</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🌹</span>
+                            <div>
+                                <div class="food-name">Rose Flower Cake <span class="food-cn">玫瑰鲜花饼</span></div>
+                                <div class="food-tag">Yunnan Sweet · Bakery / Street</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Yunnan's most famous souvenir snack — flaky pastry filled with fresh rose petal jam. The roses used are edible varieties grown in Yunnan. Fragrant, lightly sweet, and absolutely unique to this region. Great for breakfast or as a snack while wandering.</p>
+                        <div class="food-where">📍 Available at: Most bakeries and souvenir shops throughout the Old Town.</div>
+                        <div class="food-price">💰 ~¥5–10/piece</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🫙</span>
+                            <div>
+                                <div class="food-name">Pu'er Tea Ice Cream <span class="food-cn">普洱茶冰淇淋</span></div>
+                                <div class="food-tag">Street Snack · Dessert</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Yunnan's famous aged Pu'er tea transformed into a creamy, earthy ice cream. The deep, fermented tea flavor is unlike anything else. A perfect evening treat while strolling the lantern-lit canals.</p>
+                        <div class="food-where">📍 Available at: Various street stalls along the main canal walkways.</div>
+                        <div class="food-price">💰 ~¥10–20</div>
+                    </div>
+                </div>
+
+                <!-- Apr 5 – Jade Dragon Mountain Day -->
+                <div class="food-day-group">
+                    <div class="food-day-label">🏔️ April 5 — Jade Dragon Snow Mountain Area</div>
+
+                    <div class="food-card food-card-tip">
+                        <span style="font-size:1.3em;">⚠️</span>
+                        <p><strong>Altitude tip:</strong> At 3,100–4,680m, your appetite may be reduced. Eat light, stay hydrated, and bring snacks (chocolate, nuts, energy bars) from the hotel. Don't overeat before the cable car ride.</p>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🍱</span>
+                            <div>
+                                <div class="food-name">Snow Kitchen Buffet <span class="food-cn">5596餐厅</span></div>
+                                <div class="food-tag">Mountain Dining · Lunch</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">The main dining option inside the scenic area at Ganhaizi. Offers a buffet with hot dishes, noodles, and local Yunnan staples. Not gourmet, but convenient and filling for a mountain day. Also has hotpot options.</p>
+                        <div class="food-where">📍 Located at: Ganhaizi Visitor Center area</div>
+                        <div class="food-price">💰 ~¥60–120/person (buffet)</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🌽</span>
+                            <div>
+                                <div class="food-name">Mountain Snack Stalls <span class="food-cn">小吃摊</span></div>
+                                <div class="food-tag">Quick Bites · Throughout the Day</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Scattered throughout Ganhaizi — grilled sausages, boiled corn, sweet potatoes, hot tea, and instant noodles. Simple but warming at altitude. Perfect for snacking between activities rather than a heavy sit-down meal.</p>
+                        <div class="food-where">📍 Available at: Meadow area and ropeway stations</div>
+                        <div class="food-price">💰 ~¥10–30/item</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">☕</span>
+                            <div>
+                                <div class="food-name">Mountain View Café <span class="food-cn">石榴院咖啡</span></div>
+                                <div class="food-tag">Afternoon · Pomegranate Courtyard Coffee</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">After returning from the mountain, stop at Pomegranate Courtyard Coffee near the base area. Offers afternoon tea with unobstructed panoramic views of Jade Dragon Snow Mountain from the upper floors. A beautiful way to decompress after the high-altitude day.</p>
+                        <div class="food-where">📍 Near the Jade Dragon scenic area base</div>
+                        <div class="food-price">💰 ~¥30–80/person</div>
+                    </div>
+                </div>
+
+                <!-- Apr 6 – Shangri-La Day -->
+                <div class="food-day-group">
+                    <div class="food-day-label">🏯 April 6 — Shangri-La (香格里拉) Day Trip</div>
+
+                    <div class="food-card food-card-tip">
+                        <span style="font-size:1.3em;">🌿</span>
+                        <p><strong>Altitude tip:</strong> At 3,300m, Tibetan food is perfect — warm, hearty, and energising. Butter tea and barley-based foods help with acclimatisation.</p>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🫖</span>
+                            <div>
+                                <div class="food-name">Butter Tea <span class="food-cn">酥油茶</span></div>
+                                <div class="food-tag">Tibetan Essential · Everywhere</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">The quintessential Tibetan beverage — black tea churned with yak butter and salt. Thick, creamy, and savoury rather than sweet. It sounds odd but is genuinely warming and helps with altitude. This is cultural immersion in a cup. Try it at least once!</p>
+                        <div class="food-where">📍 Available at: Any Tibetan restaurant or tea house in Dukezong Ancient Town</div>
+                        <div class="food-price">💰 ~¥10–25/cup</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🥩</span>
+                            <div>
+                                <div class="food-name">Yak Hotpot <span class="food-cn">牦牛火锅</span></div>
+                                <div class="food-tag">Shangri-La Specialty · Lunch/Dinner</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Locally-raised yak meat — leaner than beef, rich in protein, with a distinctive mineral flavour from high-altitude grazing. Served in clear broth or spicy Sichuan-style. Paired with highland vegetables and tofu. The definitive Shangri-La meal.</p>
+                        <div class="food-where">📍 Try at: <strong>Shunshun Snack Restaurant</strong> (顺顺小吃) on Jinlong Street — busiest authentic spot in town. Or <strong>The Silent Holy Stones</strong> for a calmer atmosphere.</div>
+                        <div class="food-price">💰 ~¥80–150/person</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🏔️</span>
+                            <div>
+                                <div class="food-name">Matsutake Mushroom Dishes <span class="food-cn">松茸</span></div>
+                                <div class="food-tag">Seasonal Delicacy · Restaurant</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Shangri-La sits in one of the world's premier matsutake mushroom habitats. These prized fungi — highly valued in Japan and Korea — grow wild in the surrounding forests. Try them in hotpot, grilled, or in a rice dish. A rare and genuine luxury at surprisingly reasonable local prices.</p>
+                        <div class="food-where">📍 Try at: <strong>Wucaixueyu Restaurant</strong> — traditional Tibetan menu with standout matsutake dishes.</div>
+                        <div class="food-price">💰 ~¥60–120/person (seasonal pricing)</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🧈</span>
+                            <div>
+                                <div class="food-name">Tibetan Barley Cake <span class="food-cn">青稞糕 / 糌粑</span></div>
+                                <div class="food-tag">Tibetan Staple · Snack</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Tsampa (糌粑) is roasted barley flour mixed with butter tea — the foundational food of Tibetan culture. The barley cake version is lighter and easier for visitors. Dense, nutty, slightly sweet. A staple food at altitude for centuries.</p>
+                        <div class="food-where">📍 Try at: Any traditional Tibetan restaurant or the monastery area food stalls near Songzanlin</div>
+                        <div class="food-price">💰 ~¥15–30</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🍦</span>
+                            <div>
+                                <div class="food-name">Yak Yogurt <span class="food-cn">牦牛酸奶</span></div>
+                                <div class="food-tag">Tibetan Dessert · Snack</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Homemade yak milk yogurt — thick, creamy, and tangy with a richness regular yogurt can't match. Often served with honey or barley. A perfect light snack between the monastery and the lake, or at the Ancient Town.</p>
+                        <div class="food-where">📍 Available at: Street vendors and small shops near Songzanlin Monastery and Dukezong Ancient Town</div>
+                        <div class="food-price">💰 ~¥10–20/cup</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🍖</span>
+                            <div>
+                                <div class="food-name">Prayer Wheel View Dining — Talo Tibetan Restaurant <span class="food-cn">塔洛藏餐</span></div>
+                                <div class="food-tag">Best Location · Near Prayer Wheel</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Elegant Tibetan decor and an exceptional menu — but the real reason to come is the view. Talo Tibetan Restaurant sits with a direct sightline to the world's largest prayer wheel. Have an afternoon snack or tea here while the golden light hits the wheel. Genuinely special.</p>
+                        <div class="food-where">📍 Located near: Guishan Hill / Prayer Wheel, Dukezong Ancient Town</div>
+                        <div class="food-price">💰 ~¥40–100/person</div>
+                    </div>
+                </div>
+
+                <!-- Apr 7 – Last Morning -->
+                <div class="food-day-group">
+                    <div class="food-day-label">✈️ April 7 — Last Morning Before Flight</div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🥣</span>
+                            <div>
+                                <div class="food-name">Steam Pot Chicken <span class="food-cn">汽锅鸡</span></div>
+                                <div class="food-tag">Yunnan Classic · Farewell Meal</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">A unique Yunnan cooking method — chicken slow-cooked in a specially designed clay pot that uses steam pressure to create a rich, clear broth with intensely concentrated flavour. No water is added; all the liquid comes from the chicken itself. One of Yunnan's most distinctive and refined dishes.</p>
+                        <div class="food-where">📍 Try at: The Master of Lijiang (滇西王子) or any local Yunnan restaurant near the Old Town before heading to the airport.</div>
+                        <div class="food-price">💰 ~¥80–150/person</div>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="food-card-header">
+                            <span class="food-emoji">🛍️</span>
+                            <div>
+                                <div class="food-name">Snacks to Bring Home</div>
+                                <div class="food-tag">Airport / Last Shops</div>
+                            </div>
+                        </div>
+                        <p class="food-desc">Stock up before the flight: <strong>Rose flower cakes</strong> (玫瑰鲜花饼) keep well and make excellent gifts. <strong>Pu'er tea cakes</strong> (普洱茶饼) are classic Yunnan souvenirs. <strong>Yunnan ham</strong> (云腿) in vacuum packs travels well. Available at shops throughout Old Town and at the airport.</p>
+                        <div class="food-where">📍 Old Town shops or LJG Airport departures hall</div>
+                        <div class="food-price">💰 ¥30–200 depending on item</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
         <!-- Practical Tips Section -->
         <section class="tips-section">
             <h2>🎒 Practical Tips for Your Lijiang Adventure</h2>
@@ -768,29 +1174,51 @@
         <p>🇨🇳 Yunnan Province, China | UNESCO Heritage Sites & Natural Wonders</p>
         <p style="margin-top: 15px; opacity: 0.8;">Built with 💙 for an unforgettable adventure</p>
     </footer>
+
+
 <script>
-    // Dim past schedule items based on current local time (Lijiang = Asia/Shanghai, UTC+8)
+    // ── Theme Toggle ──
+    function toggleTheme() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        document.getElementById('themeBtn').textContent = isDark ? '🌙 Dark' : '☀️ Light';
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    }
+    (function() {
+        const saved = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', saved);
+        const btn = document.getElementById('themeBtn');
+        if (btn) btn.textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark';
+    })();
+
+    // ── Tab Switching ──
+    function switchTab(tab, btn) {
+        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+        document.getElementById('tab-' + tab).style.display = 'block';
+        document.querySelectorAll('.tab-btn').forEach(b => {
+            b.style.background = 'var(--tab-inactive-bg)';
+        });
+        btn.style.background = 'var(--tab-active-bg)';
+    }
+    // Init tabs
+    document.getElementById('tab-itinerary').style.display = 'block';
+
+    // ── Past Item Dimming ──
     function updatePastItems() {
         const now = new Date();
-        // Get current date/time in Asia/Shanghai (UTC+8)
-        const shanghaiOffset = 8 * 60; // minutes
+        const shanghaiOffset = 8 * 60;
         const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
         const shanghaiNow = new Date(utcMs + shanghaiOffset * 60000);
-
-        const todayStr = shanghaiNow.toISOString().slice(0, 10); // "YYYY-MM-DD"
+        const todayStr = shanghaiNow.toISOString().slice(0, 10);
         const currentMinutes = shanghaiNow.getHours() * 60 + shanghaiNow.getMinutes();
-
         document.querySelectorAll('.location[data-day]').forEach(function(el) {
             const itemDay = el.getAttribute('data-day');
             const endTimeStr = el.getAttribute('data-end-time') || el.getAttribute('data-start-time');
             if (!endTimeStr) return;
-
             const [h, m] = endTimeStr.split(':').map(Number);
             const itemEndMinutes = h * 60 + m;
-
-            const isPast = (itemDay < todayStr) ||
-                           (itemDay === todayStr && currentMinutes > itemEndMinutes);
-
+            const isPast = (itemDay < todayStr) || (itemDay === todayStr && currentMinutes > itemEndMinutes);
             if (isPast) {
                 el.style.opacity = '0.45';
                 el.style.filter = 'grayscale(40%)';
@@ -801,10 +1229,9 @@
             }
         });
     }
-
     updatePastItems();
-    // Re-check every minute
     setInterval(updatePastItems, 60000);
 </script>
+
 </body>
 </html>
