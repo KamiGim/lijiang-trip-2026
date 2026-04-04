@@ -86,45 +86,45 @@
         /* ── Dark / Light Theme ── */
         :root {
             --body-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --bg: #f0f4ff;
+            --bg: #eaecf8;
             --altitude-bg: #fff3cd;
             --card-bg: #ffffff;
-            --text: #333333;
-            --subtext: #555555;
-            --border: #e0e0e0;
-            --highlight-bg: #f8f9ff;
-            --highlight-border: #667eea;
-            --time-bg: #667eea;
+            --text: #1a1a2e;
+            --subtext: #4a4a68;
+            --border: #adb5e8;
+            --highlight-bg: #eef0ff;
+            --highlight-border: #5560d0;
+            --time-bg: #5560d0;
             --time-color: #ffffff;
             --day-header-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --footer-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --tab-active-bg: #667eea;
+            --tab-active-bg: #5560d0;
             --tab-inactive-bg: rgba(255,255,255,0.15);
             --tab-hover-bg: rgba(255,255,255,0.25);
             --section-bg: #ffffff;
-            --food-card-bg: #f8f9ff;
-            --food-card-border: #e0e6ff;
+            --food-card-bg: #f2f3ff;
+            --food-card-border: #adb5e8;
         }
         [data-theme="dark"] {
             --body-bg: #0a0c18;
-            --bg: #0f1117;
+            --bg: #090c1a;
             --altitude-bg: #2a2000;
-            --card-bg: #1a1d2e;
-            --text: #e0e0e0;
-            --subtext: #aaaaaa;
-            --border: #2e3150;
-            --highlight-bg: #1e2240;
+            --card-bg: #12162a;
+            --text: #e8eaf6;
+            --subtext: #9098c8;
+            --border: #363c6e;
+            --highlight-bg: #181d38;
             --highlight-border: #8b9cf7;
             --time-bg: #4a5ab8;
             --time-color: #ffffff;
             --day-header-bg: linear-gradient(135deg, #2a3080 0%, #4a2070 100%);
-            --footer-bg: linear-gradient(135deg, #1a1d2e 0%, #2a1a3e 100%);
+            --footer-bg: linear-gradient(135deg, #0d0f1e 0%, #1a0e2e 100%);
             --tab-active-bg: #4a5ab8;
             --tab-inactive-bg: rgba(255,255,255,0.08);
             --tab-hover-bg: rgba(255,255,255,0.15);
-            --section-bg: #1a1d2e;
-            --food-card-bg: #1e2240;
-            --food-card-border: #2e3a6e;
+            --section-bg: #12162a;
+            --food-card-bg: #161a30;
+            --food-card-border: #3a4278;
         }
 
         /* Theme toggle button */
@@ -177,6 +177,7 @@
         /* Day Section */
         .day-section {
             background: var(--card-bg);
+            border: 1px solid var(--border);
             margin: 18px 0;
             border-radius: 12px;
             overflow: hidden;
@@ -221,8 +222,10 @@
             margin: 12px 0;
             padding: 12px 14px;
             background: var(--card-bg);
+            border: 1px solid var(--border);
             border-left: 4px solid var(--highlight-border);
             border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
