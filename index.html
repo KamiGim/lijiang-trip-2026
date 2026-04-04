@@ -532,6 +532,60 @@
         .tab-content.active { display: block; }
 
 
+        
+        /* Extra Tabs Shared */
+        .extra-tab-wrap { max-width: 960px; margin: 0 auto; padding: 0 20px 60px; }
+        .extra-tab-header { margin: 30px 0 20px; }
+        .extra-tab-header h2 { font-size: 1.8em; color: var(--text); margin-bottom: 6px; }
+        .extra-tab-header p { color: var(--subtext); font-size: 0.97em; }
+
+        /* Map Tab */
+        .map-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.88em; color: var(--subtext); font-weight: 600; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+        .map-popup { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-top: 16px; position: relative; box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+        .map-popup-close { position: absolute; top: 10px; right: 14px; background: none; border: none; font-size: 1.1em; cursor: pointer; color: var(--subtext); }
+        .map-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 20px; }
+        .map-loc-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .map-loc-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(102,126,234,0.2); }
+        .map-loc-card .mlc-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+        .map-loc-card .mlc-name { font-weight: 700; font-size: 0.92em; color: var(--text); }
+        .map-loc-card .mlc-day { font-size: 0.78em; color: var(--subtext); margin-top: 3px; }
+
+        /* Weather Tab */
+        .weather-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+        @media (max-width: 600px) { .weather-grid { grid-template-columns: 1fr; } }
+        .weather-city-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; min-height: 160px; }
+        .weather-city-name { font-size: 1.1em; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+        .weather-elev { font-size: 0.75em; color: var(--subtext); font-weight: 400; }
+        .weather-loading { color: var(--subtext); font-size: 0.9em; }
+        .weather-temp { font-size: 3em; font-weight: 800; color: var(--highlight-border); line-height: 1; }
+        .weather-desc { font-size: 1em; color: var(--text); margin: 6px 0 12px; }
+        .weather-meta { font-size: 0.83em; color: var(--subtext); line-height: 1.8; }
+        .weather-forecast { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+        .weather-day { background: var(--highlight-bg); border-radius: 8px; padding: 8px 12px; text-align: center; flex: 1; min-width: 60px; }
+        .weather-day-name { font-size: 0.72em; color: var(--subtext); font-weight: 700; }
+        .weather-day-icon { font-size: 1.4em; }
+        .weather-day-temp { font-size: 0.78em; color: var(--text); font-weight: 600; }
+        .weather-tip-box { background: var(--highlight-bg); border-left: 4px solid var(--highlight-border); border-radius: 0 12px 12px 0; padding: 20px 24px; }
+        .weather-tip-box ul { padding-left: 18px; margin-top: 10px; }
+        .weather-tip-box li { color: var(--subtext); margin-bottom: 8px; font-size: 0.93em; line-height: 1.5; }
+
+        /* Phrases Tab */
+        .phrase-section-label { font-size: 1em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--highlight-border); margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--border); }
+        .phrase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; margin-bottom: 8px; }
+        .phrase-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; user-select: none; }
+        .phrase-card:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(102,126,234,0.18); border-color: var(--highlight-border); }
+        .phrase-card:active { transform: scale(0.97); }
+        .phrase-cn { font-size: 1.35em; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .phrase-pinyin { font-size: 0.82em; color: var(--highlight-border); font-style: italic; margin-bottom: 4px; }
+        .phrase-en { font-size: 0.83em; color: var(--subtext); }
+        .phrase-emergency { border-color: rgba(231,76,60,0.4); background: rgba(231,76,60,0.06); }
+        .phrase-emergency .phrase-cn { color: #e74c3c; }
+        .phrase-emergency .phrase-pinyin { color: #c0392b; }
+        .copy-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px); background: #2d3561; color: white; padding: 10px 24px; border-radius: 30px; font-weight: 700; font-size: 0.95em; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s; z-index: 9999; pointer-events: none; }
+        .copy-toast.show { transform: translateX(-50%) translateY(0); }
+
         </style>
 </head>
 <body>
@@ -550,6 +604,9 @@
         <div style="display:flex;gap:12px;margin:30px 0 24px;flex-wrap:wrap;">
             <button id="btn-itinerary" class="tab-btn" onclick="switchTab('itinerary',this)">🗓️ Itinerary</button>
             <button id="btn-food" class="tab-btn" onclick="switchTab('food',this)">🍜 Food Guide</button>
+            <button id="btn-map" class="tab-btn" onclick="switchTab('map',this)">🗺️ Map</button>
+            <button id="btn-weather" class="tab-btn" onclick="switchTab('weather',this)">🌤️ Weather</button>
+            <button id="btn-phrases" class="tab-btn" onclick="switchTab('phrases',this)">🗣️ Phrases</button>
         </div>
 
         <!-- ── ITINERARY TAB ── -->
@@ -1161,6 +1218,118 @@
         </div>
 
 
+        <!-- MAP TAB -->
+        <div id="tab-map" class="tab-content">
+            <div class="extra-tab-wrap">
+                <div class="extra-tab-header">
+                    <h2>🗺️ Trip Map</h2>
+                    <p>All locations across your 4-day adventure. Tap a marker to see details.</p>
+                </div>
+                <div class="map-legend">
+                    <span class="legend-item"><span class="legend-dot" style="background:#fdcb6e"></span> Hotel</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#667eea"></span> Apr 4 – Lijiang</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#e84393"></span> Apr 5 – Jade Dragon</span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#00b894"></span> Apr 6 – Shangri-La</span>
+                </div>
+                <div id="map-container" style="width:100%;height:500px;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.18);"></div>
+                <div id="map-popup" class="map-popup" style="display:none;">
+                    <button class="map-popup-close" onclick="document.getElementById('map-popup').style.display='none'">✕</button>
+                    <div id="map-popup-content"></div>
+                </div>
+                <div class="map-cards-grid" id="map-cards"></div>
+            </div>
+        </div>
+
+        <!-- WEATHER TAB -->
+        <div id="tab-weather" class="tab-content">
+            <div class="extra-tab-wrap">
+                <div class="extra-tab-header">
+                    <h2>🌤️ Weather</h2>
+                    <p>Live conditions for Lijiang &amp; Shangri-La. Data from wttr.in.</p>
+                </div>
+                <div class="weather-grid">
+                    <div class="weather-city-card" id="weather-lijiang">
+                        <div class="weather-city-name">📍 Lijiang <span class="weather-elev">2,416m</span></div>
+                        <div class="weather-loading">Loading...</div>
+                    </div>
+                    <div class="weather-city-card" id="weather-shangri">
+                        <div class="weather-city-name">📍 Shangri-La <span class="weather-elev">3,300m</span></div>
+                        <div class="weather-loading">Loading...</div>
+                    </div>
+                </div>
+                <div class="weather-tip-box">
+                    <div style="font-size:1.4em;margin-bottom:8px;">🏔️ Mountain Weather Tips</div>
+                    <ul>
+                        <li><strong>Jade Dragon (4,680m):</strong> Always cold at the top — temperature difference can be 15–25°C vs the valley.</li>
+                        <li><strong>April:</strong> Dry season transitioning to rainy. Morning is clearest for mountain views; afternoons may cloud over.</li>
+                        <li><strong>Shangri-La:</strong> Noticeably cooler than Lijiang — pack an extra layer for the day trip.</li>
+                        <li><strong>UV risk:</strong> Intense at high altitude — sunscreen essential even on cloudy days.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHRASES TAB -->
+        <div id="tab-phrases" class="tab-content">
+            <div class="extra-tab-wrap">
+                <div class="extra-tab-header">
+                    <h2>🗣️ Useful Phrases</h2>
+                    <p>Essential Mandarin for your trip. Tap any card to copy the Chinese text.</p>
+                </div>
+                <div id="copy-toast" class="copy-toast">✓ Copied!</div>
+
+                <div class="phrase-section-label">🚖 Transport &amp; Navigation</div>
+                <div class="phrase-grid">
+                    <div class="phrase-card" onclick="copyPhrase('去丽江古城',this)"><div class="phrase-cn">去丽江古城</div><div class="phrase-pinyin">Qù Lìjiāng Gǔchéng</div><div class="phrase-en">Take me to Lijiang Old Town</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('去玉龙雪山',this)"><div class="phrase-cn">去玉龙雪山</div><div class="phrase-pinyin">Qù Yùlóng Xuěshān</div><div class="phrase-en">Take me to Jade Dragon Snow Mountain</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('去香格里拉火车站',this)"><div class="phrase-cn">去香格里拉火车站</div><div class="phrase-pinyin">Qù Xiānggélǐlā Huǒchēzhàn</div><div class="phrase-en">Take me to Shangri-La train station</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('多少钱？',this)"><div class="phrase-cn">多少钱？</div><div class="phrase-pinyin">Duōshǎo qián?</div><div class="phrase-en">How much does it cost?</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('请在这里停车',this)"><div class="phrase-cn">请在这里停车</div><div class="phrase-pinyin">Qǐng zài zhèlǐ tíngchē</div><div class="phrase-en">Please stop here</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('太贵了，能便宜点吗？',this)"><div class="phrase-cn">太贵了，能便宜点吗？</div><div class="phrase-pinyin">Tài guì le, néng piányí diǎn ma?</div><div class="phrase-en">Too expensive, can it be cheaper?</div></div>
+                </div>
+
+                <div class="phrase-section-label">🍜 Food &amp; Ordering</div>
+                <div class="phrase-grid">
+                    <div class="phrase-card" onclick="copyPhrase('两位',this)"><div class="phrase-cn">两位</div><div class="phrase-pinyin">Liǎng wèi</div><div class="phrase-en">Table for two</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('这个是什么？',this)"><div class="phrase-cn">这个是什么？</div><div class="phrase-pinyin">Zhège shì shénme?</div><div class="phrase-en">What is this?</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('不要太辣',this)"><div class="phrase-cn">不要太辣</div><div class="phrase-pinyin">Bù yào tài là</div><div class="phrase-en">Not too spicy please</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('我要一碗过桥米线',this)"><div class="phrase-cn">我要一碗过桥米线</div><div class="phrase-pinyin">Wǒ yào yī wǎn guòqiáo mǐxiàn</div><div class="phrase-en">I'd like crossing-the-bridge noodles</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('买单！',this)"><div class="phrase-cn">买单！</div><div class="phrase-pinyin">Mǎidān!</div><div class="phrase-en">Check please!</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('好吃！',this)"><div class="phrase-cn">好吃！</div><div class="phrase-pinyin">Hǎo chī!</div><div class="phrase-en">Delicious!</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('我不吃肉',this)"><div class="phrase-cn">我不吃肉</div><div class="phrase-pinyin">Wǒ bù chī ròu</div><div class="phrase-en">I don't eat meat</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('有没有菜单？',this)"><div class="phrase-cn">有没有菜单？</div><div class="phrase-pinyin">Yǒu méiyǒu càidān?</div><div class="phrase-en">Do you have a menu?</div></div>
+                </div>
+
+                <div class="phrase-section-label">🏨 Hotel &amp; Shopping</div>
+                <div class="phrase-grid">
+                    <div class="phrase-card" onclick="copyPhrase('我有预订',this)"><div class="phrase-cn">我有预订</div><div class="phrase-pinyin">Wǒ yǒu yùdìng</div><div class="phrase-en">I have a reservation</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('WiFi密码是什么？',this)"><div class="phrase-cn">WiFi密码是什么？</div><div class="phrase-pinyin">WiFi mìmǎ shì shénme?</div><div class="phrase-en">What's the WiFi password?</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('我只是看看',this)"><div class="phrase-cn">我只是看看</div><div class="phrase-pinyin">Wǒ zhǐshì kànkàn</div><div class="phrase-en">I'm just looking</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('可以刷卡吗？',this)"><div class="phrase-cn">可以刷卡吗？</div><div class="phrase-pinyin">Kěyǐ shuākǎ ma?</div><div class="phrase-en">Can I pay by card?</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('太贵了',this)"><div class="phrase-cn">太贵了</div><div class="phrase-pinyin">Tài guì le</div><div class="phrase-en">Too expensive</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('有没有更小的？',this)"><div class="phrase-cn">有没有更小的？</div><div class="phrase-pinyin">Yǒu méiyǒu gèng xiǎo de?</div><div class="phrase-en">Do you have a smaller one?</div></div>
+                </div>
+
+                <div class="phrase-section-label">🏔️ Mountains &amp; Activities</div>
+                <div class="phrase-grid">
+                    <div class="phrase-card" onclick="copyPhrase('缆车在哪里？',this)"><div class="phrase-cn">缆车在哪里？</div><div class="phrase-pinyin">Lǎnchē zài nǎlǐ?</div><div class="phrase-en">Where is the cable car?</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('我需要氧气',this)"><div class="phrase-cn">我需要氧气</div><div class="phrase-pinyin">Wǒ xūyào yǎngqì</div><div class="phrase-en">I need oxygen</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('我感觉头晕',this)"><div class="phrase-cn">我感觉头晕</div><div class="phrase-pinyin">Wǒ gǎnjué tóu yūn</div><div class="phrase-en">I feel dizzy / altitude sickness</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('厕所在哪里？',this)"><div class="phrase-cn">厕所在哪里？</div><div class="phrase-pinyin">Cèsuǒ zài nǎlǐ?</div><div class="phrase-en">Where is the toilet?</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('可以照相吗？',this)"><div class="phrase-cn">可以照相吗？</div><div class="phrase-pinyin">Kěyǐ zhàoxiàng ma?</div><div class="phrase-en">Can I take a photo?</div></div>
+                    <div class="phrase-card" onclick="copyPhrase('帮我们拍一张照片好吗？',this)"><div class="phrase-cn">帮我们拍一张照片好吗？</div><div class="phrase-pinyin">Bāng wǒmen pāi yī zhāng zhàopiàn hǎo ma?</div><div class="phrase-en">Can you take a photo of us?</div></div>
+                </div>
+
+                <div class="phrase-section-label">🚨 Emergency</div>
+                <div class="phrase-grid">
+                    <div class="phrase-card phrase-emergency" onclick="copyPhrase('救命！',this)"><div class="phrase-cn">救命！</div><div class="phrase-pinyin">Jiùmìng!</div><div class="phrase-en">Help!</div></div>
+                    <div class="phrase-card phrase-emergency" onclick="copyPhrase('请叫救护车',this)"><div class="phrase-cn">请叫救护车</div><div class="phrase-pinyin">Qǐng jiào jiùhùchē</div><div class="phrase-en">Please call an ambulance</div></div>
+                    <div class="phrase-card phrase-emergency" onclick="copyPhrase('我需要去医院',this)"><div class="phrase-cn">我需要去医院</div><div class="phrase-pinyin">Wǒ xūyào qù yīyuàn</div><div class="phrase-en">I need to go to a hospital</div></div>
+                    <div class="phrase-card phrase-emergency" onclick="copyPhrase('我对...过敏',this)"><div class="phrase-cn">我对...过敏</div><div class="phrase-pinyin">Wǒ duì... guòmǐn</div><div class="phrase-en">I am allergic to...</div></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Practical Tips Section -->
         <section class="tips-section">
             <h2>🎒 Practical Tips for Your Lijiang Adventure</h2>
@@ -1300,6 +1469,124 @@
     }
     updatePastItems();
     setInterval(updatePastItems, 60000);
+
+    // MAP
+    const MAP_LOCATIONS = [
+        { id:'hotel',      name:'YueTing Hotel',                    cn:'丽江悦庭',            day:'Apr 4',     color:'#fdcb6e', lat:26.872,  lng:100.240,  emoji:'🏨', desc:'Your base — 360 rooftop terrace with views of Old Town and Jade Dragon.' },
+        { id:'oldtown',    name:'Lijiang Old Town',                  cn:'丽江古城',            day:'Apr 4 Eve', color:'#667eea', lat:26.8625, lng:100.2314, emoji:'🏯', desc:'UNESCO World Heritage Site. Cobblestone streets, canals, Naxi culture, night markets.' },
+        { id:'ganhaizi',   name:'Ganhaizi Meadow',                   cn:'甘海子草甸',          day:'Apr 5',     color:'#e84393', lat:27.040,  lng:100.190,  emoji:'🌲', desc:'Alpine meadow at 3,100m. Venue for Impression Lijiang Show. Stunning mountain views.' },
+        { id:'jdsnow',     name:'Jade Dragon Snow Mountain',         cn:'玉龙雪山',            day:'Apr 5',     color:'#e84393', lat:27.0667, lng:100.1833, emoji:'🏔️', desc:'4,680m peak with cable car to Glacier Park. 19 temperate glaciers. Extreme altitude.' },
+        { id:'bluemoon',   name:'Blue Moon Valley',                  cn:'蓝月谷',              day:'Apr 5',     color:'#e84393', lat:27.055,  lng:100.175,  emoji:'💎', desc:'Turquoise glacial water from copper minerals. Most photogenic spot in the area.' },
+        { id:'songzanlin', name:'Songzanlin Monastery',              cn:'松赞林寺',            day:'Apr 6',     color:'#00b894', lat:27.990,  lng:99.650,   emoji:'🏛️', desc:'Little Potala Palace. Largest Tibetan monastery in Yunnan. 700 monks, built 1679.' },
+        { id:'lamuyang',   name:'Lamuyangcuo Lake',                  cn:'拉姆央措',            day:'Apr 6',     color:'#00b894', lat:27.975,  lng:99.655,   emoji:'🏞️', desc:'Sacred Holy Mother Soul Lake. Mirror reflections of the monastery and mountains.' },
+        { id:'dukezong',   name:'Dukezong Town and Prayer Wheel',    cn:'独克宗古城 & 龟山',   day:'Apr 6',     color:'#00b894', lat:27.8333, lng:99.700,   emoji:'🙏', desc:'Worlds largest Tibetan prayer wheel (21m, 60 tons, 12.4B mantras). Tibetan food nearby.' }
+    ];
+
+    function initMap() {
+        const container = document.getElementById('map-container');
+        if (!container || window._lijiangMapInit) return;
+        window._lijiangMapInit = true;
+        if (typeof L === 'undefined') {
+            const lnk = document.createElement('link');
+            lnk.rel = 'stylesheet';
+            lnk.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+            document.head.appendChild(lnk);
+            const scr = document.createElement('script');
+            scr.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+            scr.onload = buildMap;
+            document.head.appendChild(scr);
+        } else { buildMap(); }
+    }
+
+    function buildMap() {
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const tile = dark
+            ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+            : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+        const map = L.map('map-container').setView([27.2, 99.95], 9);
+        L.tileLayer(tile, { attribution: '© OpenStreetMap © CARTO', subdomains: 'abcd', maxZoom: 19 }).addTo(map);
+        MAP_LOCATIONS.forEach(function(loc) {
+            const icon = L.divIcon({
+                html: '<div style="background:' + loc.color + ';width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,0.35);border:2px solid white;">' + loc.emoji + '</div>',
+                className: '', iconSize: [36,36], iconAnchor: [18,18]
+            });
+            L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map).on('click', function() { showMapPopup(loc, map); });
+        });
+        const grid = document.getElementById('map-cards');
+        if (grid) {
+            grid.innerHTML = MAP_LOCATIONS.map(function(loc) {
+                return '<div class="map-loc-card" onclick=\'showMapPopup(' + JSON.stringify(loc).replace(/'/g,"&#39;") + ', window._lijiangMap)\'>' +
+                    '<div><span class="mlc-dot" style="background:' + loc.color + '"></span><span class="mlc-name">' + loc.emoji + ' ' + loc.name + '</span></div>' +
+                    '<div class="mlc-day">' + loc.cn + ' · ' + loc.day + '</div></div>';
+            }).join('');
+        }
+        window._lijiangMap = map;
+    }
+
+    function showMapPopup(loc, map) {
+        const popup = document.getElementById('map-popup');
+        document.getElementById('map-popup-content').innerHTML =
+            '<div style="font-size:1.5em;margin-bottom:4px;">' + loc.emoji + ' <strong>' + loc.name + '</strong></div>' +
+            '<div style="font-size:0.88em;color:var(--subtext);margin-bottom:10px;">' + loc.cn + ' · ' + loc.day + '</div>' +
+            '<p style="color:var(--subtext);font-size:0.92em;line-height:1.6;margin:0">' + loc.desc + '</p>';
+        popup.style.display = 'block';
+        if (map) map.flyTo([loc.lat, loc.lng], 13, { duration: 1 });
+    }
+
+    // WEATHER
+    const WX = {
+        113:'☀️ Sunny',116:'⛅ Partly Cloudy',119:'☁️ Cloudy',122:'🌫️ Overcast',
+        143:'🌫️ Mist',176:'🌦️ Patchy Rain',200:'⛈️ Thunder',248:'🌫️ Fog',
+        263:'🌦️ Drizzle',266:'🌧️ Light Rain',293:'🌧️ Light Rain',296:'🌧️ Rain',
+        299:'🌧️ Moderate Rain',302:'🌧️ Heavy Rain',305:'🌧️ Heavy Rain',
+        308:'⛈️ Very Heavy Rain',320:'🌨️ Light Snow',323:'❄️ Snow',
+        353:'🌦️ Light Shower',356:'🌧️ Rain Shower',359:'⛈️ Heavy Shower',
+        386:'⛈️ Thunder Rain',389:'⛈️ Heavy Thunder'
+    };
+    const DNAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+    async function loadWeather(city, elId) {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        const nameHTML = el.querySelector('.weather-city-name') ? el.querySelector('.weather-city-name').innerHTML : '';
+        try {
+            const r = await fetch('https://wttr.in/' + city + '?format=j1');
+            const d = await r.json();
+            const c = d.current_condition[0];
+            const desc = WX[parseInt(c.weatherCode)] || c.weatherDesc[0].value;
+            const fcast = d.weather.slice(0,3).map(function(w) {
+                const dt = new Date(w.date);
+                const ic = (WX[parseInt(w.hourly[4] && w.hourly[4].weatherCode)] || '🌡️').split(' ')[0];
+                return '<div class="weather-day"><div class="weather-day-name">' + DNAMES[dt.getDay()] + '</div>' +
+                    '<div class="weather-day-icon">' + ic + '</div>' +
+                    '<div class="weather-day-temp">' + w.mintempC + '°–' + w.maxtempC + '°</div></div>';
+            }).join('');
+            el.innerHTML = '<div class="weather-city-name">' + nameHTML + '</div>' +
+                '<div class="weather-temp">' + c.temp_C + '°C</div>' +
+                '<div class="weather-desc">' + desc + '</div>' +
+                '<div class="weather-meta">💧 ' + c.humidity + '% humidity &nbsp;|&nbsp; 💨 ' + c.windspeedKmph + ' km/h &nbsp;|&nbsp; 👁️ ' + c.visibility + ' km</div>' +
+                '<div class="weather-forecast">' + fcast + '</div>';
+        } catch(e) {
+            el.innerHTML = '<div class="weather-city-name">' + nameHTML + '</div><div class="weather-loading" style="color:#e74c3c">⚠️ Could not load. Check connection.</div>';
+        }
+    }
+
+    // PHRASES
+    function copyPhrase(text, el) {
+        if (navigator.clipboard) navigator.clipboard.writeText(text).catch(function(){});
+        const toast = document.getElementById('copy-toast');
+        if (toast) { toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 1600); }
+        if (el) { el.style.borderColor = 'var(--highlight-border)'; setTimeout(function(){ el.style.borderColor = ''; }, 1600); }
+    }
+
+    // EXTEND switchTab
+    const _origSwitchTab = switchTab;
+    switchTab = function(tab, btn) {
+        _origSwitchTab(tab, btn);
+        if (tab === 'map') setTimeout(initMap, 80);
+        if (tab === 'weather') { loadWeather('Lijiang', 'weather-lijiang'); loadWeather('Shangri-La', 'weather-shangri'); }
+    };
+
 </script>
 
 </body>
