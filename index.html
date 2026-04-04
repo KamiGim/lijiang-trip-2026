@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lijiang Adventure 🏔️ April 4-7, 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 32, 46, 0.8), rgba(103, 58, 183, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="mountains" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><polygon points="100,0 200,200 0,200" fill="%23ddd" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="%231a202e"/><rect width="1200" height="600" fill="url(%23mountains)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .dates {
+            font-size: 1.2em;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Day Section */
+        .day-section {
+            background: white;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-left: 5px solid #ffd700;
+        }
+
+        .day-header h2 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .day-header .emoji {
+            font-size: 2.5em;
+            margin-right: 15px;
+        }
+
+        .day-content {
+            padding: 30px;
+        }
+
+        /* Location Card */
+        .location {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .location:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .location-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .time {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .location-details {
+            margin-top: 12px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .location-details p {
+            margin: 8px 0;
+        }
+
+        .location-details strong {
+            color: #333;
+        }
+
+        /* Altitude Warning */
+        .altitude-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .altitude-warning .icon {
+            font-size: 1.5em;
+        }
+
+        /* Highlights Section */
+        .highlights {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 12px;
+        }
+
+        .highlights h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlights li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .highlights li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            margin: 40px 0;
+            border-radius: 12px;
+        }
+
+        .tips-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .tip-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .tip-card p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202e;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+
+            .day-header h2 {
+                font-size: 1.5em;
+            }
+
+            .location-title {
+                font-size: 1.1em;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mt-20 {
+            margin-top: 20px;
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>✨ Lijiang Adventure ✨</h1>
+        <p class="subtitle">A Journey Through Mountains, Culture & Magic</p>
+        <p class="dates">🗓️ April 4-7, 2026 • 🇨🇳 Yunnan Province</p>
+    </section>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- April 4 - Departure Day -->
+        <div class="day-section">
+            <div class="day-header">
+                <h2><span class="emoji">✈️</span> April 4 (Saturday) - Departure Day</h2>
+            </div>
+            <div class="day-content">
+                <div class="location">
+                    <div class="time">12:00 PM - 12:30 PM</div>
+                    <div class="location-title">🚗 Grab to Airport</div>
+                    <div class="location-details">
+                        <p><strong>Route:</strong> Bangkok → Suvarnabhumi Airport (BKK)</p>
+                        <p>Head to the airport for your flight to Lijiang. Make sure your passport and travel documents are ready!</p>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">1:30 PM - 3:50 PM</div>
+                    <div class="location-title">🛂 Bangkok International Airport (BKK)</div>
+                    <div class="location-details">
+                        <p><strong>Activity:</strong> Check-in, Security, Customs</p>
+                        <p>Arrive 2 hours early for international flights. Use this time to relax and prepare for your mountain adventure!</p>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">3:50 PM - 7:40 PM</div>
+                    <div class="location-title">✈️ Ruili Airlines Flight DR5042</div>
+                    <div class="location-details">
+                        <p><strong>Flight:</strong> Bangkok (BKK) → Lijiang (LJH)</p>
+                        <p><strong>Duration:</strong> ~4 hours</p>
+                        <p>Sit back and enjoy views of the mountains as you approach Yunnan Province. The landscape gradually transforms from tropical lowlands to mountain peaks.</p>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">8:00 PM - 10:00 PM</div>
+                    <div class="location-title">🏨 Hotel Check-in & Lijiang Old Town Tour</div>
+                    <div class="location-details">
+                        <p><strong>UNESCO Heritage Site (1997)</strong></p>
+                        <p>Welcome to Lijiang! Check into your hotel, then explore the enchanting Old Town.</p>
+                        <div class="highlights">
+                            <h4>🏰 What to Expect:</h4>
+                            <ul>
+                                <li>Ancient cobblestone streets lined with traditional wooden buildings</li>
+                                <li>The famous Black Dragon Pond (Heilongtan) with night reflections</li>
+                                <li>Intricate water system with over 300 stone bridges</li>
+                                <li>Naxi architecture spanning 800+ years of the Silk Road era</li>
+                                <li>Local shops, tea houses, and street food vendors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- April 5 - Jade Dragon Snow Mountain -->
+        <div class="day-section">
+            <div class="day-header">
+                <h2><span class="emoji">⛰️</span> April 5 (Sunday) - Jade Dragon Snow Mountain Day</h2>
+            </div>
+            <div class="day-content">
+                <div class="location">
+                    <div class="time">8:00 AM - 8:30 AM</div>
+                    <div class="location-title">🚌 One Day Tour Departure</div>
+                    <div class="location-details">
+                        <p><strong>Meet:</strong> Your tour group at the hotel lobby</p>
+                        <p>Early start! Grab breakfast and meet your guide. This is going to be an epic day with stunning mountain views.</p>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">9:30 AM - 10:00 AM</div>
+                    <div class="location-title">🌲 Ganhaizi Meadow</div>
+                    <div class="location-details">
+                        <p><strong>Elevation:</strong> ~3,100m (10,100 ft)</p>
+                        <p>Your first stop! This scenic meadow offers breathtaking views of Jade Dragon Snow Mountain. Stretch your legs and take in the alpine scenery.</p>
+                        <div class="highlights">
+                            <h4>📸 Photo Tips:</h4>
+                            <ul>
+                                <li>Golden hour light (early morning) is perfect here</li>
+                                <li>Snow-capped peaks are most visible in clear morning air</li>
+                                <li>This is also the venue for the Impression Lijiang Show</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">10:00 AM - 1:00 PM</div>
+                    <div class="location-title">🏔️ Jade Dragon Snow Mountain (玉龍雪山)</div>
+                    <div class="location-details">
+                        <p><strong>Elevation:</strong> 4,680m (15,350 ft) - Highest Point</p>
+                        <p><strong>Entrance Fee:</strong> ¥5,000</p>
+                        <p><strong>What to Expect:</strong> Cable car ride up the mountain, visiting Glacier Park with 19 temperate marine glaciers, and stunning panoramic views of 13 snow-capped peaks.</p>
+
+                        <div class="altitude-warning">
+                            <div class="icon">⚠️</div>
+                            <div>
+                                <strong>Altitude Warning:</strong> At 4,680m, you're at extreme altitude. Even the cable car to 4,506m brings challenges. The final climb to the observation platform is steep and can cause dizziness or shortness of breath.
+                            </div>
+                        </div>
+
+                        <div class="highlights">
+                            <h4>🏔️ Tips for Success:</h4>
+                            <ul>
+                                <li>Take your time - no need to rush</li>
+                                <li>Breathe slowly and deeply</li>
+                                <li>Wear layers - it's cold at the top!</li>
+                                <li>The cable car takes ~10 minutes and ascends ~1,000 meters</li>
+                                <li>Bring water and energy snacks</li>
+                                <li>Don't panic if you feel dizzy - descend slowly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">1:00 PM - 2:20 PM</div>
+                    <div class="location-title">🍜 Lunch at Snow Kitchen</div>
+                    <div class="location-details">
+                        <p><strong>Location:</strong> Ganhaizi, at the base of Jade Dragon</p>
+                        <p><strong>Note:</strong> Self-provided meal</p>
+                        <p>Refuel after your mountain adventure! Local restaurants offer Yunnan specialties. Try the rice noodles (过桥米线) or local yak dishes.</p>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">2:20 PM - 3:30 PM</div>
+                    <div class="location-title">🎭 Impression Lijiang Show</div>
+                    <div class="location-details">
+                        <p><strong>Director:</strong> Zhang Yimou (2008 Beijing Olympics Fame)</p>
+                        <p><strong>Performers:</strong> ~500 local Naxi, Bai, and Yi performers in traditional costumes</p>
+                        <p><strong>Location:</strong> Outdoor theater at Ganhaizi, 3,100m above sea level</p>
+                        <p>An unforgettable 1-hour performance showcasing Yunnan's ethnic cultures through singing, dancing, horse riding, and drumming. Two parts: "Impression of the Snow Mountain" and "Impression of the Ancient City."</p>
+                        <div class="highlights">
+                            <h4>✨ Highlights:</h4>
+                            <ul>
+                                <li>Opening with the Ancient Tea Horse Road story</li>
+                                <li>Stunning backdrop of snow-capped mountains</li>
+                                <li>Raw, authentic cultural performances (minimal lighting, daytime show)</li>
+                                <li>All in Mandarin, but emotion transcends language</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">3:30 PM - 6:30 PM</div>
+                    <div class="location-title">💎 Blue Moon Valley (藍月谷)</div>
+                    <div class="location-details">
+                        <p><strong>Why It's Blue:</strong> Copper ions and minerals in glacial meltwater create the stunning turquoise hue. The color shifts from deep sapphire to milky aquamarine throughout the day!</p>
+                        <p><strong>Best Light:</strong> Late afternoon (golden hour) is magical here.</p>
+                        <p>Walk along pristine waters and soak in the surreal blue landscape. This is one of Lijiang's most Instagram-worthy spots.</p>
+                        <div class="highlights">
+                            <h4>📷 Photography Tips:</h4>
+                            <ul>
+                                <li>Afternoon light is best for saturated blue colors</li>
+                                <li>Clear, sunny days produce the most vivid blues</li>
+                                <li>Bring a polarizing filter if you have one</li>
+                                <li>The lake is fed by Jade Dragon glacial melt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">6:30 PM onwards</div>
+                    <div class="location-title">🚌 Return to City & Dinner</div>
+                    <div class="location-details">
+                        <p>Head back to Lijiang city. You've earned a great dinner! Explore the Old Town night markets or enjoy a nice restaurant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- April 6 - Shangri-La Day Trip -->
+        <div class="day-section">
+            <div class="day-header">
+                <h2><span class="emoji">🏯</span> April 6 (Monday) - Shangri-La Adventure</h2>
+            </div>
+            <div class="day-content">
+                <div class="location">
+                    <div class="time">9:05 AM - 10:38 AM</div>
+                    <div class="location-title">🚂 Train C441 to Shangri-La (Zhongdian)</div>
+                    <div class="location-details">
+                        <p><strong>Distance:</strong> ~185 km from Lijiang</p>
+                        <p><strong>Elevation Destination:</strong> 3,300m (10,827 ft)</p>
+                        <p>Scenic train ride through Yunnan's gorgeous mountain landscape. Watch the terrain transform as you climb toward Shangri-La. The name was inspired by James Hilton's novel "Lost Horizon" (adopted in 2001).</p>
+
+                        <div class="altitude-warning">
+                            <div class="icon">⚠️</div>
+                            <div>
+                                <strong>Altitude Notice:</strong> Shangri-La sits at 3,300m. Most visitors acclimatize without issues, but take it easy and drink water. If you have heart, blood pressure, or breathing issues, rest today.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">11:00 AM - 12:30 PM</div>
+                    <div class="location-title">🏛️ Songzanlin Monastery (松贊林寶)</div>
+                    <div class="location-details">
+                        <p><strong>Nickname:</strong> "Little Potala Palace"</p>
+                        <p><strong>Status:</strong> Largest Tibetan Buddhist monastery in Yunnan</p>
+                        <p><strong>Founded:</strong> 1679 (Yellow Hat / Gelug sect)</p>
+                        <p><strong>Current Monks:</strong> ~700 (peak was 2,000+)</p>
+                        <p><strong>Altitude:</strong> 3,380m</p>
+                        <p>An absolutely stunning monastery with golden roofs, intricate Buddhist architecture, and 108 auspicious columns. Walk through temple halls adorned with golden statues, lamps, and silver censers.</p>
+                        <div class="highlights">
+                            <h4>🙏 What to See:</h4>
+                            <ul>
+                                <li>Gilded copper roofs reflecting sunlight</li>
+                                <li>108 columns (auspicious number in Buddhism)</li>
+                                <li>Six main structures with eight colleges</li>
+                                <li>Treasures: golden statues, silver censers, ancient manuscripts</li>
+                                <li>Known as a "Tibetan Art Museum"</li>
+                                <li>Views of Lamuyangcuo Lake from the monastery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">1:45 PM - 3:30 PM</div>
+                    <div class="location-title">💎 Lamuyangcuo Lake (拉姆元措湖)</div>
+                    <div class="location-details">
+                        <p><strong>Name Meaning:</strong> "Holy Mother Soul Lake" or "Soul of Heaven Fairy Lake" in Tibetan</p>
+                        <p><strong>Spiritual Significance:</strong> Sacred lake dedicated to goddess Baiden Lhamo (Palden Lhamo) - one of the top three holy lakes for Tibetans</p>
+                        <p>A serene, mirror-like alpine lake directly opposite Songzanlin Monastery. Crystal clear waters reflect the monastery, mountains, and sky in perfect symmetry.</p>
+                        <div class="highlights">
+                            <h4>🦢 Wildlife & Nature:</h4>
+                            <ul>
+                                <li>Year-round black-necked cranes and yellow ducks</li>
+                                <li>Lush wetland grasses and wildflowers</li>
+                                <li>Scenic boardwalks for easy exploration</li>
+                                <li>Length: ~2,110 meters</li>
+                                <li>Perfect for 20-60 minutes of peaceful walking</li>
+                            </ul>
+                        </div>
+                        <div class="highlights">
+                            <h4>📸 Best Photo Times:</h4>
+                            <ul>
+                                <li>Sunrise and sunset for golden light</li>
+                                <li>Midday for the deepest blue reflections</li>
+                                <li>Clear weather essential for perfect mirror reflections</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">3:30 PM - 5:30 PM</div>
+                    <div class="location-title">🏯 Dukezong Ancient Town & Guishan Temple</div>
+                    <div class="location-details">
+                        <p><strong>Highlight:</strong> The World's Largest Tibetan Prayer Wheel!</p>
+                        <p>The iconic prayer wheel sits atop Guishan Hill (Turtle Hill, 3,300m+). This massive bronze structure stands 21-24 meters (69-80 feet) tall, weighs 60 tons, and is gold-plated.</p>
+                        <div class="highlights">
+                            <h4>🙏 Prayer Wheel Details:</h4>
+                            <ul>
+                                <li>Contains 12.4 billion repetitions of "OM MANI PADME HUM"</li>
+                                <li>Three full rotations = reciting the mantra 37.2 billion times!</li>
+                                <li>Requires 4-12 strong people to spin (group effort!)</li>
+                                <li>Lit up beautifully at night</li>
+                                <li>Part of the larger Guishan Temple complex</li>
+                            </ul>
+                        </div>
+                        <div class="highlights">
+                            <h4>🏛️ Dukezong Ancient Town:</h4>
+                            <ul>
+                                <li>Historic Tibetan town with traditional architecture</li>
+                                <li>Moonlight Square for local culture & shops</li>
+                                <li>Panoramic views of Shangri-La from Guishan Hill</li>
+                                <li>Nearby yak photo ops and local vendors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">6:25 PM - 8:00 PM</div>
+                    <div class="location-title">🚂 Train C88 Back to Lijiang</div>
+                    <div class="location-details">
+                        <p>Head back to Lijiang by evening train. Relax, reflect on your incredible day, and enjoy the sunset views as you descend back to sea level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- April 7 - Return Day -->
+        <div class="day-section">
+            <div class="day-header">
+                <h2><span class="emoji">✈️</span> April 7 (Tuesday) - Return to Bangkok</h2>
+            </div>
+            <div class="day-content">
+                <div class="location">
+                    <div class="time">12:00 PM - 2:00 PM</div>
+                    <div class="location-title">🛂 Lijiang Airport Check-in</div>
+                    <div class="location-details">
+                        <p><strong>Airport:</strong> Lijiang Sanyi Airport (LJH)</p>
+                        <p>Arrive 2 hours early for your international departure. Say goodbye to the mountains and prepare for the flight home.</p>
+                    </div>
+                </div>
+
+                <div class="location">
+                    <div class="time">2:00 PM - 3:50 PM</div>
+                    <div class="location-title">✈️ Ruili Airlines Flight DR5041</div>
+                    <div class="location-details">
+                        <p><strong>Flight:</strong> Lijiang (LJH) → Bangkok (BKK)</p>
+                        <p><strong>Duration:</strong> ~4 hours</p>
+                        <p>The return flight to Bangkok. As you descend, you'll see the landscape transform back to tropical lowlands. Savor the memories of this incredible Yunnan adventure!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical Tips Section -->
+        <section class="tips-section">
+            <h2>🎒 Practical Tips for Your Lijiang Adventure</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="icon">🏔️</div>
+                    <h3>Altitude Management</h3>
+                    <p><strong>Jade Dragon:</strong> 4,680m is extreme. Take breaks, breathe slowly, and don't push yourself.<br><strong>Shangri-La:</strong> 3,300m is moderate. Drink water, rest on day 1.<br>Acclimatize gradually from lower elevations.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">❄️</div>
+                    <h3>Weather & Packing</h3>
+                    <p><strong>Layers are essential!</strong> Jade Dragon can be -5°C at the top. Bring: warm jacket, thermal wear, gloves, warm hat, sunscreen, sunglasses.<br>Shangri-La averages 5.8°C year-round with 25°C daytime/chilly nights.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">🍽️</div>
+                    <h3>Food & Local Cuisine</h3>
+                    <p><strong>Must-try:</strong> Rice noodles (过桥米线), yak dishes, local mushrooms.<br>Eat light at high altitudes. Avoid heavy meals before mountain activities. Stay hydrated!</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">🚗</div>
+                    <h3>Transport Tips</h3>
+                    <p><strong>Train to Shangri-La:</strong> Book seats in advance.<br><strong>Tours:</strong> Book hotels often have tour desks for group excursions.<br><strong>Local transport:</strong> Buses, taxis, and ride-apps are available.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">📱</div>
+                    <h3>Connectivity</h3>
+                    <p><strong>Phone:</strong> Get a Chinese SIM card or international roaming.<br><strong>Internet:</strong> Hotels have Wi-Fi. Download maps offline (Baidu Maps or Google Maps works).<br><strong>Language:</strong> Learn basic Mandarin phrases or use translation apps.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">🎫</div>
+                    <h3>Tickets & Bookings</h3>
+                    <p><strong>Jade Dragon:</strong> ¥5,000 entrance, cable car included in tours.<br><strong>Impression Show:</strong> Usually included in tours or book separately.<br><strong>Monasteries:</strong> Small entrance fees apply.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">💪</div>
+                    <h3>Fitness & Health</h3>
+                    <p><strong>Before:</strong> No intense exercise 2 weeks prior.<br><strong>During:</strong> Take it slow at high altitudes. Avoid alcohol on mountain days.<br><strong>Medication:</strong> Consider altitude sickness prevention (consult your doctor).</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">📸</div>
+                    <h3>Photography Essentials</h3>
+                    <p><strong>Best times:</strong> Golden hour (sunrise/sunset).<br><strong>Gear:</strong> Bring a lightweight tripod, extra batteries (cold drains them!), and memory cards.<br><strong>Altitude hack:</strong> Compress photos regularly—clouds and thin air create stunning contrast.</p>
+                </div>
+
+                <div class="tip-card">
+                    <div class="icon">🧘</div>
+                    <h3>Mental Preparation</h3>
+                    <p>This is a high-altitude journey with intense experiences. Stay positive, be patient with your body, and embrace the adventure. The mountains will reward your respect with unforgettable memories.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px;">
+            <h2 style="margin-bottom: 15px;">Ready for an Adventure?</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">Pack your bags, bring your sense of wonder, and prepare for the journey of a lifetime.</p>
+            <p style="font-size: 1.2em;">✨ Welcome to Lijiang, the land of eternal snows and timeless traditions. ✨</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>🏔️ <strong>Lijiang Trip 2026</strong> | April 4-7, 2026</p>
+        <p>🇨🇳 Yunnan Province, China | UNESCO Heritage Sites & Natural Wonders</p>
+        <p style="margin-top: 15px; opacity: 0.8;">Built with 💙 for an unforgettable adventure</p>
+    </footer>
+</body>
+</html>
