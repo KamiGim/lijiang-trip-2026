@@ -567,6 +567,9 @@
         .weather-day-name { font-size: 0.72em; color: var(--subtext); font-weight: 700; }
         .weather-day-icon { font-size: 1.4em; }
         .weather-day-temp { font-size: 0.78em; color: var(--text); font-weight: 600; }
+        .weather-sun-row { display: flex; gap: 12px; margin: 8px 0 10px; flex-wrap: wrap; }
+        .weather-sun-badge { background: var(--highlight-bg); border-radius: 20px; padding: 5px 12px; font-size: 0.85em; color: var(--text); }
+        .weather-day-sun { font-size: 0.68em; color: var(--subtext); margin-top: 2px; }
         .weather-tip-box { background: var(--highlight-bg); border-left: 4px solid var(--highlight-border); border-radius: 0 12px 12px 0; padding: 20px 24px; }
         .weather-tip-box ul { padding-left: 18px; margin-top: 10px; }
         .weather-tip-box li { color: var(--subtext); margin-bottom: 8px; font-size: 0.93em; line-height: 1.5; }
@@ -1619,6 +1622,13 @@
     };
     const DNAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
+    // format "hhmm" -> "HH:MM"
+    function fmtTime(t) {
+        if (!t) return '--';
+        const s = t.toString().padStart(4, '0');
+        return s.slice(0,2) + ':' + s.slice(2);
+    }
+
     async function loadWeather(city, elId) {
         const el = document.getElementById(elId);
         if (!el) return;
@@ -1628,17 +1638,33 @@
             const d = await r.json();
             const c = d.current_condition[0];
             const desc = WX[parseInt(c.weatherCode)] || c.weatherDesc[0].value;
+            // Sunrise & sunset from today's weather entry
+            const today = d.weather[0];
+            const sunrise = today ? fmtTime(today.astronomy[0].sunrise) : '--';
+            const sunset  = today ? fmtTime(today.astronomy[0].sunset)  : '--';
+            const sunriseRaw = today && today.astronomy[0].sunrise || '';
+            const sunsetRaw  = today && today.astronomy[0].sunset  || '';
             const fcast = d.weather.slice(0,3).map(function(w) {
                 const dt = new Date(w.date);
                 const ic = (WX[parseInt(w.hourly[4] && w.hourly[4].weatherCode)] || '🌡️').split(' ')[0];
-                return '<div class="weather-day"><div class="weather-day-name">' + DNAMES[dt.getDay()] + '</div>' +
+                const sr = w.astronomy[0] ? w.astronomy[0].sunrise : '';
+                const ss = w.astronomy[0] ? w.astronomy[0].sunset  : '';
+                return '<div class="weather-day">' +
+                    '<div class="weather-day-name">' + DNAMES[dt.getDay()] + '</div>' +
                     '<div class="weather-day-icon">' + ic + '</div>' +
-                    '<div class="weather-day-temp">' + w.mintempC + '°–' + w.maxtempC + '°</div></div>';
+                    '<div class="weather-day-temp">' + w.mintempC + '°–' + w.maxtempC + '°</div>' +
+                    (sr ? '<div class="weather-day-sun">🌅 ' + sr + '</div>' : '') +
+                    (ss ? '<div class="weather-day-sun">🌇 ' + ss + '</div>' : '') +
+                    '</div>';
             }).join('');
             el.innerHTML = '<div class="weather-city-name">' + nameHTML + '</div>' +
                 '<div class="weather-temp">' + c.temp_C + '°C</div>' +
                 '<div class="weather-desc">' + desc + '</div>' +
-                '<div class="weather-meta">💧 ' + c.humidity + '% humidity &nbsp;|&nbsp; 💨 ' + c.windspeedKmph + ' km/h &nbsp;|&nbsp; 👁️ ' + c.visibility + ' km</div>' +
+                '<div class="weather-sun-row">' +
+                    '<span class="weather-sun-badge">🌅 Sunrise&nbsp; <strong>' + sunriseRaw + '</strong></span>' +
+                    '<span class="weather-sun-badge">🌇 Sunset&nbsp; <strong>' + sunsetRaw + '</strong></span>' +
+                '</div>' +
+                '<div class="weather-meta">💧 ' + c.humidity + '% &nbsp;|&nbsp; 💨 ' + c.windspeedKmph + ' km/h &nbsp;|&nbsp; 👁️ ' + c.visibility + ' km</div>' +
                 '<div class="weather-forecast">' + fcast + '</div>';
         } catch(e) {
             el.innerHTML = '<div class="weather-city-name">' + nameHTML + '</div><div class="weather-loading" style="color:#e74c3c">⚠️ Could not load. Check connection.</div>';
