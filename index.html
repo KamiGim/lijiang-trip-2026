@@ -1473,6 +1473,10 @@
                         <div class="weather-city-name">📍 Shangri-La <span class="weather-elev">3,300m</span></div>
                         <div class="weather-loading">Loading...</div>
                     </div>
+                    <div class="weather-city-card" id="weather-kunming">
+                        <div class="weather-city-name">📍 Kunming <span class="weather-elev">1,890m</span></div>
+                        <div class="weather-loading">Loading...</div>
+                    </div>
                 </div>
                 <div class="weather-tip-box">
                     <div style="font-size:1.4em;margin-bottom:8px;">🏔️ Mountain Weather Tips</div>
@@ -1892,7 +1896,7 @@
     switchTab = function(tab, btn) {
         _origSwitchTab(tab, btn);
         if (tab === 'map') setTimeout(initMap, 80);
-        if (tab === 'weather') { loadWeather('Lijiang', 'weather-lijiang'); loadWeather('Shangri-La', 'weather-shangri'); }
+        if (tab === 'weather') { loadWeather('Lijiang', 'weather-lijiang'); loadWeather('Shangri-La', 'weather-shangri'); loadWeather('Kunming', 'weather-kunming'); }
     };
 
 </script>
