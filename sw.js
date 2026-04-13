@@ -1,5 +1,5 @@
 // Lijiang Adventure 2026 — Service Worker
-const CACHE_NAME = 'lijiang-2026-v6';
+const CACHE_NAME = 'lijiang-2026-v7';
 const ASSETS = [
   './',
   './index.html',
