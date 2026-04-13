@@ -1719,14 +1719,17 @@
         const shanghaiNow = new Date(utcMs + shanghaiOffset * 60000);
         const todayStr = shanghaiNow.toISOString().slice(0, 10);
         const currentMinutes = shanghaiNow.getHours() * 60 + shanghaiNow.getMinutes();
+        const threeDaysAgoStr = new Date(shanghaiNow.getTime() - 3 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         document.querySelectorAll('.location[data-day]').forEach(function(el) {
             const itemDay = el.getAttribute('data-day');
             const endTimeStr = el.getAttribute('data-end-time') || el.getAttribute('data-start-time');
             if (!endTimeStr) return;
             const [h, m] = endTimeStr.split(':').map(Number);
             const itemEndMinutes = h * 60 + m;
-            const isPast = (itemDay < todayStr) || (itemDay === todayStr && currentMinutes > itemEndMinutes);
-            if (isPast) {
+            const isPastToday = (itemDay === todayStr && currentMinutes > itemEndMinutes);
+            // Only dim if past but within the last 3 days
+            const shouldDim = isPastToday || (itemDay < todayStr && itemDay >= threeDaysAgoStr);
+            if (shouldDim) {
                 el.style.opacity = '0.45';
                 el.style.filter = 'grayscale(40%)';
                 el.style.transition = 'opacity 0.5s, filter 0.5s';
